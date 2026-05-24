@@ -27,7 +27,7 @@ public class SlotCor : MonoBehaviour
         }
         else
         {
-            indicador.color = Color.white;
+            indicador.color = Color.gray;
         }
 
         return correto;
