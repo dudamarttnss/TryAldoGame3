@@ -25,6 +25,17 @@ public class CorArrastavel : MonoBehaviour
         transform.position = PegarMouseWorld() + offset;
     }
 
+    void OnMouseUp()
+    {
+        // Quando soltar, encaixa no centro
+        if (slotAtual != null)
+        {
+            transform.position = slotAtual.transform.position;
+
+            slotAtual.VerificarCor();
+        }
+    }
+
     Vector3 PegarMouseWorld()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -40,21 +51,8 @@ public class CorArrastavel : MonoBehaviour
 
         if (slot != null)
         {
-            // Remove do slot antigo
-            if (slotAtual != null)
-            {
-                slotAtual.imagemAtual = null;
-            }
-
-            // Define novo slot
             slotAtual = slot;
             slot.imagemAtual = this;
-
-            // Encaixa no centro
-            transform.position = slot.transform.position;
-
-            // Verifica
-            slot.VerificarCor();
         }
     }
 
