@@ -8,6 +8,9 @@ public class SlotCor : MonoBehaviour
     [Header("Objeto Atual")]
     public CorArrastavel imagemAtual;
 
+    [Header("Indicador")]
+    public SpriteRenderer indicador;
+
     public bool VerificarCor()
     {
         if (imagemAtual == null)
@@ -16,6 +19,16 @@ public class SlotCor : MonoBehaviour
         bool correto = imagemAtual.cor == cor;
 
         Debug.Log("Cor correta? " + correto);
+
+        // Se estiver correto fica amarelo
+        if (correto)
+        {
+            indicador.color = Color.yellow;
+        }
+        else
+        {
+            indicador.color = Color.white;
+        }
 
         return correto;
     }
